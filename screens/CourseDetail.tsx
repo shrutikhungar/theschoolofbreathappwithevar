@@ -18,7 +18,6 @@ const CourseDetailScreen: React.FC = () => {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
       <CourseDetailLayout
         courseTitle={course.title}
         courseImage={course.image}
@@ -28,7 +27,6 @@ const CourseDetailScreen: React.FC = () => {
         author={course.author}
         courseTheme={course.courseTheme}
       />
-    </ScrollView>
   );
 };
 
