@@ -1,3 +1,4 @@
+//CourseListHomeScreen.tsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, TouchableOpacity, FlatList, ImageBackground, Image, ActivityIndicator, Linking } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -36,28 +37,37 @@ const CourseListHomeScreen: React.FC<Props> = ({ navigation }) => {
 
   useEffect(() => {
     const checkAuthStatus = async () => {
-      const token = await getToken();
-      setIsAuthenticated(!!token);
+      try {
+        const token = await getToken();
+        if (token) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);  // Set to false when token not found
+        }
+      } catch (error) {
+        console.error('Error retrieving token:', error);
+        setIsAuthenticated(false);
+      }
     };
     checkAuthStatus();
   }, [getToken]);
 
-  const { data: userTags, isLoading, error } = useQuery<string[], Error>({
+  const { data: userTags = [], isLoading, error } = useQuery<string[], Error>({
     queryKey: ['userTags', user?.email, isAuthenticated],
     queryFn: async () => {
       const token = await getToken();
-      if (token) {
-        return fetchUserTags(user?.email ?? '');
+      if (token && isAuthenticated) {
+        return fetchUserTags(user?.email ?? '');  // Fetch only if token exists and user is authenticated
       }
-      return []; // Return empty array for unauthenticated users
+      return [];
     },
-    enabled: isAuthenticated,
+    enabled: isAuthenticated,  // Only run if user is authenticated
   });
 
   const accessibleCourses = useCourseAccess(userTags || [], courses);
 
   const handleUpgradeNow = () => {
-    navigation.navigate('LoginScreenCourse');
+    navigation.navigate('Login');
   };
 
   const renderCourse = ({ item, index }: { item: Course; index: number }) => {
@@ -128,7 +138,7 @@ const CourseListHomeScreen: React.FC<Props> = ({ navigation }) => {
   if (error) {
     return (
       <View style={styles.errorContainer}>
-        <Text>Error fetching data</Text>
+        <Text>Error fetching data: {error.message}</Text>
       </View>
     );
   }

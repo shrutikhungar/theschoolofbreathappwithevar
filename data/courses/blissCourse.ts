@@ -41,62 +41,6 @@ export const BLISS_COURSE = {
           ],
         },
         {
-          section: 'Day 2 - Release Your Emotional Pattern',
-          lessons: [
-            { id: '3', title: 'Understanding How to Release Emotional Patterns', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day2/output.m3u8' },
-
-          ],
-        },
-        {
-          section: 'Day 3 - Feel Gratitude: You Are Enough',
-          lessons: [
-            { id: '5', title: 'Cultivating Gratitude and Self-Acceptance', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day3/output.m3u8' },
-       
-          ],
-        },
-        {
-          section: 'Day 4 - Stop the Chase and Take Action',
-          lessons: [
-            { id: '7', title: 'Understanding the Power of Taking Action', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day4/output.m3u8' },
-        
-          ],
-        },
-        {
-          section: 'Day 5 - Attain Healing with Sound',
-          lessons: [
-            { id: '9', title: 'Introduction to Healing with Sound', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day5/output.m3u8' },
-       
-          ],
-        },
-        {
-          section: 'Day 6 - Break Free From Habits',
-          lessons: [
-            { id: '11', title: 'Identifying and Breaking Free from Habits', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day6/output.m3u8' },
-           
-          ],
-        },
-        {
-          section: 'Day 7 - Feel Gratitude and Forgiveness',
-          lessons: [
-            { id: '13', title: 'The Power of Gratitude and Forgiveness', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day7/output.m3u8' },
-
-          ],
-        },
-        {
-          section: 'Day 8 - Change Your Limiting Beliefs',
-          lessons: [
-            { id: '15', title: 'Understanding and Changing Limiting Beliefs', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day8/output.m3u8' },
-           
-          ],
-        },
-        {
-          section: 'Day 9 - Feel Empowered and Celebrate',
-          lessons: [
-            { id: '17', title: 'Feel Empowered and Celebrate (Theory and Practice)', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day9/Day9-1/output.m3u8' },
-            { id: '27', title: 'Feel Empowered and Celebrate (Practice Part Only)', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day9/Day9-2/output.m3u8' }         
-          ],
-        },
-        {
           section: 'Bonus Tools: Healing Sanskrit Mantras',
           lessons: [
             { id: '18', title: 'Om Gan Ganpataye Namo Namah', isFromYoutube:true,videoUrl: 'https://www.youtube.com/watch?v=x0frWyAiEts' },
