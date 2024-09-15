@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "The School of Breath",
+    "slug": "TheSchoolofBreath",
+    "version": "1.2.2",
+    "orientation": "portrait",
+    "icon": "./assets/AppMainImage.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/AppMainImage.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow The School of Breath to access your microphone."
+        }
+      ],
+      "expo-font"
+    ],
+    "ios": {
+      "buildNumber": "6",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.meditatewithabhi.theschoolofbreath",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ],
+        "NSMicrophoneUsageDescription": "This app requires access to the microphone for recording your voice and audio experiences."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/AppMainImage.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.theschoolofbreath.meditatewithabhi",
+      "versionCode": 6,
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "WAKE_LOCK",
+        "FOREGROUND_SERVICE",
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5e67928c-3209-4558-b5a4-65f207d56705"
+      }
+    }
+  }
+}

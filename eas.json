@@ -1,0 +1,40 @@
+{
+  "cli": {
+    "version": ">= 10.2.2",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "applicationArchivePath": "android/app/build/outputs/apk/release/app-release.apk"
+      },
+      "ios": {
+        "simulator": false,
+        "distribution": "internal",
+        "autoIncrement": true
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-service-key.json",
+        "track": "production"
+      },
+      "ios": {
+        "appleId": "abhishekdug@me.com",
+        "ascAppId": "6670392350",
+        "appleTeamId": "LG4QX5G8QG"
+      }
+    }
+  }
+}
