@@ -39,9 +39,9 @@ export const BREATH_WORK_COURSE:Course = {
         {
           section: 'Day 1 - Energy',
           lessons: [
-            { id: '1', title: 'Learn - Kapalbhati and Bhramari Pranayama', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day1Video1/output.m3u8' },
-            { id: '2', title: 'Practice - Ignite Your Energy', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day1Video2/output.m3u8' },
-            { id: '22232', title: 'Breathwork Journal-Download', type:'file',videoUrl: '' , file:'https://storage.googleapis.com/schoolbreathvideos/sample.pdf'},
+            { id: '1', title: 'Learn - Kapalbhati and Bhramari Pranayama', videoUrl: '' },
+            { id: '2', title: 'Practice - Ignite Your Energy', videoUrl: '' },
+            { id: '22232', title: 'Breathwork Journal-Download', type:'file',videoUrl: '' , file:''},
           ],
         },
         {
@@ -61,43 +61,43 @@ export const BREATH_WORK_COURSE:Course = {
         {
           section: 'Day 4 - Vitality',
           lessons: [
-            { id: '7', title: 'Learn - Bhastrika Pranayama (Bellows Breath)', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day4Video1/output.m3u8' },
-            { id: '8', title: 'Practice - Boost Your Vitality', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day4Video2/output.m3u8' },
+            { id: '7', title: 'Learn - Bhastrika Pranayama (Bellows Breath)', videoUrl: '' },
+            { id: '8', title: 'Practice - Boost Your Vitality', videoUrl: '' },
           ],
         },
         {
           section: 'Day 5 - Resilience',
           lessons: [
-            { id: '9', title: 'Learn - Tummo Breathing Technique', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day5Video1/output.m3u8' },
-            { id: '10', title: 'Practice - Cultivate Resilience', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day5Video2/output.m3u8' },
+            { id: '9', title: 'Learn - Tummo Breathing Technique', videoUrl: '' },
+            { id: '10', title: 'Practice - Cultivate Resilience', videoUrl: '' },
           ],
         },
         {
           section: 'Day 6 - Clarity',
           lessons: [
-            { id: '11', title: 'Learn - Alternate Nostril Breathing', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day6Video1/output.m3u8' },
-            { id: '12', title: 'Practice - Achieve Mental Clarity', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day6Video2/output.m3u8' },
+            { id: '11', title: 'Learn - Alternate Nostril Breathing', videoUrl: '' },
+            { id: '12', title: 'Practice - Achieve Mental Clarity', videoUrl: '' },
           ],
         },
         {
           section: 'Day 7 - Detox',
           lessons: [
-            { id: '13', title: 'Learn - Agnisara Kriya (Fire Energy)', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day7Video1/output.m3u8' },
-            { id: '14', title: 'Practice - Deep Detox Breathwork', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day7Video2/output.m3u8' },
+            { id: '13', title: 'Learn - Agnisara Kriya (Fire Energy)', videoUrl: '' },
+            { id: '14', title: 'Practice - Deep Detox Breathwork', videoUrl: '' },
           ],
         },
         {
           section: 'Day 8 - Bliss',
           lessons: [
-            { id: '15', title: 'Learn - Suprashant Pranayama', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day8Video1/output.m3u8' },
-            { id: '16', title: 'Practice - Experience Bliss', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day8Video2/output.m3u8' },
+            { id: '15', title: 'Learn - Suprashant Pranayama', videoUrl: '' },
+            { id: '16', title: 'Practice - Experience Bliss', videoUrl: '' },
           ],
         },
         {
           section: 'Day 9 - Restore',
           lessons: [
-            { id: '17', title: 'Learn - Yoga Nidra (Psychic Sleep)', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day9Video1/output.m3u8' },
-            { id: '18', title: 'Practice - Complete Restoration', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/Day9Video2/output.m3u8' },
+            { id: '17', title: 'Learn - Yoga Nidra (Psychic Sleep)', videoUrl: '' },
+            { id: '18', title: 'Practice - Complete Restoration', videoUrl: '' },
           ],
         },
         {
@@ -113,7 +113,7 @@ export const BREATH_WORK_COURSE:Course = {
         {
           section: 'Bonus Tools: More',
           lessons: [
-            { id: '19', title: 'Tummo Breathing - Advanced Tibetan Practice', isFromYoutube:true,videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Breathwork/BonusVideo1/output.m3u8' },
+            { id: '19', title: 'Tummo Breathing - Advanced Tibetan Practice', isFromYoutube:true,videoUrl: '' },
             { id: '23', title: 'Humming Bee', isFromYoutube:true,videoUrl: 'https://www.youtube.com/embed/mv3nV_M93ww?si=6ODG3aAsvhDWn-Jr' },
             { id: '24', title: '4-7-8 Breathing', isFromYoutube:true,videoUrl: 'https://www.youtube.com/embed/BNd7geB-aD4?si=1SrjqK2r-SpCv-wF' },
             { id: '25', title: 'Square Breathing',isFromYoutube:true, videoUrl: 'https://youtu.be/XyNTZ_-UuJw' },

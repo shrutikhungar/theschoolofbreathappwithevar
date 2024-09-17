@@ -1,7 +1,9 @@
+//AuthContext.tsx
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { API_URL } from '../utils/api.config';
+//import { API_URL } from '@env';  // Import API_URL from environment variables
+import { getSecretValue } from '../utils/secretManager';  // Import getSecretValue function
 
 export type User = {
   id: string;
@@ -28,10 +30,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+  const [apiUrl, setApiUrl] = useState<string | null>(null);  // Store the fetched API URL
 
   useEffect(() => {
+    // Fetch the API URL from Google Secret Manager on app start
+    const fetchApiUrl = async () => {
+      try {
+        const fetchedApiUrl: string | undefined = await getSecretValue('API_URL');  // Fetch from Google Secret Manager
+        console.log('Fetched API_URL:', fetchedApiUrl);  // For testing
+        
+        // Only set the API URL if it exists, otherwise, set it to null or throw an error
+        if (fetchedApiUrl) {
+          setApiUrl(fetchedApiUrl);
+        } else {
+          console.error('API_URL not found or undefined');
+          setApiUrl(null);  // or handle this case in another way
+        }
+      } catch (error) {
+        console.error('Error fetching API_URL from Google Secret Manager:', error);
+      }
+    };
+  
+    fetchApiUrl();
     checkAuthStatus();
   }, []);
+  
 
   const checkAuthStatus = async () => {
     setIsLoading(true);

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sleepmusicapp-413415",
+  "private_key_id": "60991d92bbd636ad7f6b5874b3e442e168bfb285",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLTCJoCynGD7Zu\naXh66woAemG54xdBL8SHIz1M+QowrjjEJgdM0zT8AsgQDF3PceM+5yQtjapo9s6o\ndrCdTYMBDVurwwxKj7GE3D04/OMxwBHWnPy4NH6q6rhItLJOjzvSeJiMQy2W4K9y\n8ukI/zF6p2Spg5Cr7+6CHkWacWpTQpqXXEMm8YhcjDKomHXwMg5E4kAibH7Hw4Kv\nh1f4tUnvBiHWNV+obihR1xXOZqLVBjUuGDnWUX1QEyUsFPWguJ8wyicWd10sCFeS\nYYWYrO6OADZgg0Pk+05algkyFdVZlOYZvNs/4BBgyko6s6/rK6ZzL080w/YF4DIU\n2LY23wWFAgMBAAECggEAUpouNrEmeYvj16vyIJuEllojgBiF1941T6VhYHemDM6V\nURmUiMIeerEUofSsX0AKkgHvwLSZg4mYwXlsXJXkf1Zyo3EeeuM0wWONWqziEVJV\nzSo/QwdNWlwBocUN1/6501Rdw0v+Z5oGn8GULywlag0+yOOksj/MXME5Db48cfRZ\nBEtRrUUajKeHNdrudDI/wxMpteOIkVlERt8CGye4GRFRIckVfPZD6oRodDiYghBT\nOOtI9SJLUQgmCu+RzHrftx1vPLoK0hQaBGztdv6aVcbJkke9S+hXArsqUAz5TAXD\nyu9EsJBL9YYaSrzqBjPg6hIsrz+6bhPPfYISBwmoJwKBgQD+i+53IDGXjCX/HWoK\nWaQDU1Qlbdf8WFlXxOw4E6EzrbvjuDv78uMjw+7O+Gyk4+8a7IGtyuLSNgGdAxSP\n4hCymyFYnqV81vNuxhZLjpY4BDLRxJ3WMbqrRcGCDxJvtSc7qfsPQAQqm1esJ+eb\nGk3okPi9UoAn2HAvxwmL8gjcJwKBgQDMdUrZ6tpNqA3o7XdbXRilDI0e9/XqopSr\nOt5VqID7/0I7gsIJH4Di1NMt+TIxGY+buOxxP0C6v/k1Vjk9yODnLU4vD40Vp2Z2\nQ6T3qDrH28+ybA4eNlR5zw5/mPY0IG0STTvBfkP/+ujEfdW2NyIr3ZQXDev6JxcT\nhiBFcO7gcwKBgBxuVLxJhECBDt1n06hESuV0MTndAvrUg2YiQKAi0SaMiSfuNAT4\nJBaik9HaPYhNTS+cqv9WYe9IyPVYmrtXbLYGTbswPRushpQg2+ykiHLJRUPYyiha\ndZcbu3ljZZPEkBVB7yDM7ao0n55C9sOENJ99UcsTo+zPZ/huKsrOxd6RAoGBAKFy\nRQbKolMLzuANE2C7pIg/3veDSVZbxxVmyMXO5vsV1xDy8ZEOpVF4SMFWs0F+M539\nagcKsWxFxt1NFqopAx7I8aHLn9Znd0sPoyZEWxYSBnGXTZahxBbjX0l2WYNTz4zS\nG8twjvWFBWSTELxv0LXeo9+IiLvhPiGWmcj7okTtAoGBAJUI4W1rCysvO1xgWKK6\nMg25vi/tKfynnZC4lzWvG414Tqy6gk7qgUIYMOpKHmrBhCkGgv5bTcluI6Ev/QJy\nuFmr1NcUuVHGiw7omjdXVgJUA1ptEfGQarFzHHzVBP53KBwbAbTRrkhMRG0XoHu0\nebSm1mYWSpC+ME0P9uiRdQK/\n-----END PRIVATE KEY-----\n",
+  "client_email": "theschoolofbreathapp@sleepmusicapp-413415.iam.gserviceaccount.com",
+  "client_id": "101131746562931019689",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/theschoolofbreathapp%40sleepmusicapp-413415.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

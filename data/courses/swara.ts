@@ -35,43 +35,43 @@ author:{
     {
       section: 'Swara Yoga Course',
       lessons: [
-        { id: '1', title: 'Start Here', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Start%20Here/output.m3u8' },
-        { id: '24', title: 'Lesson 1 - Build Your Awareness', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day1/output.m3u8' },
+        { id: '1', title: 'Start Here', videoUrl: '' },
+        { id: '24', title: 'Lesson 1 - Build Your Awareness', videoUrl: '' },
       ],
     },
     {
       section: 'Learning the Basics',
       lessons: [
-        { id: '2', title: 'Lesson 2 - Balance Your Energy', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day2/output.m3u8' },
-        { id: '3', title: 'Lesson 3 - Align Your Breath', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day3/output.m3u8' },
-        { id: '4', title: 'Lesson 4 - Determine Your Nostril Dominance', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day4/output.m3u8' },
+        { id: '2', title: 'Lesson 2 - Balance Your Energy', videoUrl: '' },
+        { id: '3', title: 'Lesson 3 - Align Your Breath', videoUrl: '' },
+        { id: '4', title: 'Lesson 4 - Determine Your Nostril Dominance', videoUrl: '' },
       ],
     },
     {
       section: 'Starting the Practice',
       lessons: [
-        { id: '5', title: 'Lesson 5 - How to Get 100% Success in Daily Tasks', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day5/output.m3u8' },
-        { id: '6', title: 'Lesson 6 - How to Switch Your Dominant Nostril on Demand', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day6/output.m3u8' },
-        { id: '7', title: 'Lesson 7 - Best Time to Meditate: Activating Sushumna Nadi', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day7/output.m3u8' },
+        { id: '5', title: 'Lesson 5 - How to Get 100% Success in Daily Tasks', videoUrl: '' },
+        { id: '6', title: 'Lesson 6 - How to Switch Your Dominant Nostril on Demand', videoUrl: '' },
+        { id: '7', title: 'Lesson 7 - Best Time to Meditate: Activating Sushumna Nadi', videoUrl: '' },
       ],
     },
     {
       section: 'Mastering the Practice',
       lessons: [
-        { id: '8', title: 'Lesson 8 - Optimize Your Week by Aligning Your Days with the Planets', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day8/output.m3u8' },
-        { id: '9', title: 'Lesson 9 - Monthly Alignment on Full Moon and New Moon for Health and Wellness', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day9/output.m3u8' },
-        { id: '10', title: 'Lesson 10 - How Long to Practice Swara Yoga for Ultimate Success', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day10/output.m3u8' },
-        { id: '11', title: 'Lesson 11 - Daily Journaling - Left vs Right Nostril', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day11/output.m3u8' },
-        { id: '12', title: 'Lesson 12 -  Hourly Journaling - Left vs Right Nostril', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day12/output.m3u8' },
-        { id: '13', title: 'Lesson 13 - Eating and Drinking - Left vs Right Nostril', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/Day13/output.m3u8' },
+        { id: '8', title: 'Lesson 8 - Optimize Your Week by Aligning Your Days with the Planets', videoUrl: '' },
+        { id: '9', title: 'Lesson 9 - Monthly Alignment on Full Moon and New Moon for Health and Wellness', videoUrl: '' },
+        { id: '10', title: 'Lesson 10 - How Long to Practice Swara Yoga for Ultimate Success', videoUrl: '' },
+        { id: '11', title: 'Lesson 11 - Daily Journaling - Left vs Right Nostril', videoUrl: '' },
+        { id: '12', title: 'Lesson 12 -  Hourly Journaling - Left vs Right Nostril', videoUrl: '' },
+        { id: '13', title: 'Lesson 13 - Eating and Drinking - Left vs Right Nostril', videoUrl: '' },
       ]
     },
 
     {
       section: 'Bonus Practice',
       lessons: [
-        { id: '14', title: 'Alternate Nostril Breathing: Balance Your Brain Hemispheres', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/BONUS1/output.m3u8' },
-        { id: '15', title: 'Mudras - Master These Ancient Hand Gestures for Balance & Health', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/Swara%20Yoga%20Course/BONUS2/output0.ts' },
+        { id: '14', title: 'Alternate Nostril Breathing: Balance Your Brain Hemispheres', videoUrl: '' },
+        { id: '15', title: 'Mudras - Master These Ancient Hand Gestures for Balance & Health', videoUrl: '' },
       
       ],
     },
@@ -97,11 +97,11 @@ author:{
     {
       section: 'Download Course Material',
       lessons: [
-        { id: '24', title: 'Daily Activities and Nostril Dominance',type:'file',videoUrl: '' , file:'https://d1yei2z3i6k35z.cloudfront.net/3208501/65d1ce56a8efe_3BActivitiesfortheleftvsRightnostrildominance.pdf'},
-        { id: '25', title: 'Foods to Switch Your Nostril Dominance',type:'file',videoUrl: '' , file:'https://d1yei2z3i6k35z.cloudfront.net/3208501/65d1ce740f06a_3ESwaraYogaChart-FoodsthatactivateRightandLeftnostrils.pdf'},
-        { id: '26', title: 'Optimize Your Week: Planetary Influence',type:'file',videoUrl: '' , file:'https://d1yei2z3i6k35z.cloudfront.net/3208501/65ed931fc4281_8SwaraYogaChart-Daysoftheweek.pdf'},
-        { id: '27', title: 'Monthly allignment on New and Full Moon',type:'file',videoUrl: '' , file:'https://d1yei2z3i6k35z.cloudfront.net/3208501/65f5d61aec940_9SwaraYogaNewandFullMoonAlignment.pdf'},
-        { id: '29', title: 'Download Journal',type:'file',videoUrl: '' , file:'https://d1yei2z3i6k35z.cloudfront.net/3208501/66827dbf56ff7_Lesson12SwaraYogaDailyJournalwithAdvFinal.pdf'}
+        { id: '24', title: 'Daily Activities and Nostril Dominance',type:'file',videoUrl: '' , file:''},
+        { id: '25', title: 'Foods to Switch Your Nostril Dominance',type:'file',videoUrl: '' , file:''},
+        { id: '26', title: 'Optimize Your Week: Planetary Influence',type:'file',videoUrl: '' , file:''},
+        { id: '27', title: 'Monthly allignment on New and Full Moon',type:'file',videoUrl: '' , file:''},
+        { id: '29', title: 'Download Journal',type:'file',videoUrl: '' , file:''}
       ],
     }
   ],

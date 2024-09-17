@@ -2,11 +2,13 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Modal, Linking, Dimensions, Alert } from 'react-native';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { useAuth } from '../context/AuthContext';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useQuery } from '@tanstack/react-query';
 import { fetchUserTags } from '../services/tags.service';
 import { fullAccessMemberTags, limitedAccessTags } from '../data/accessRules';
 import { PaymentRequest } from 'react-native-payments'; // Import PaymentRequest from react-native-payments
+import { MERCHANT_IDENTIFIER, SUPPORTED_NETWORKS, COUNTRY_CODE, CURRENCY_CODE, SUBSCRIPTION_LABEL, SUBSCRIPTION_AMOUNT } from '@env';  // Import sensitive data from env
 
 export default function CustomDrawerContent(props) {
   const { user, logout } = useAuth();
@@ -43,22 +45,22 @@ export default function CustomDrawerContent(props) {
       [{
         supportedMethods: ['apple-pay'],
         data: {
-          merchantIdentifier: 'merchant.com.meditatewithabhi.theschoolofbreath', // Ensure this matches the Entitlements.plist
-          supportedNetworks: ['visa', 'mastercard', 'amex'], // Payment networks
-          countryCode: 'US', // Your country code
-          currencyCode: 'USD', // Currency in which the payment will be made
+          merchantIdentifier: MERCHANT_IDENTIFIER,  // Loaded from .env
+          supportedNetworks: SUPPORTED_NETWORKS.split(','),  // Loaded from .env
+          countryCode: COUNTRY_CODE,  // Loaded from .env
+          currencyCode: CURRENCY_CODE,  // Loaded from .env
         }
       }],
       // Transaction details
       {
         total: {
-          label: 'Holistic Membership',
-          amount: '99.00', // Total amount
+          label: SUBSCRIPTION_LABEL,  // Loaded from .env
+          amount: SUBSCRIPTION_AMOUNT,  // Loaded from .env
         },
         displayItems: [
           {
             label: '1 Year Subscription',
-            amount: '99.00', // Price for the subscription
+            amount: SUBSCRIPTION_AMOUNT,  // Loaded from .env
           }
         ]
       }
