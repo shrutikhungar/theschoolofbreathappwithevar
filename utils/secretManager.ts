@@ -7,7 +7,6 @@ const FIREBASE_FUNCTION_URL = 'https://us-central1-sleepmusicapp-413415.cloudfun
 // Function to call Firebase Cloud Function to get secrets
 export const getSecretValue = async (secretName: string): Promise<string | null> => {
   try {
-    console.log(`Requesting secret for: ${secretName}`);
     
     // Make a GET request to your Firebase Cloud Function
     const response = await axios.get(`${FIREBASE_FUNCTION_URL}?name=${secretName}`);
@@ -16,11 +15,8 @@ export const getSecretValue = async (secretName: string): Promise<string | null>
     const secretPayload = response.data.secret;
     
     if (!secretPayload) {
-      console.warn(`Secret ${secretName} is empty or undefined.`);
       return null;
     }
-    
-    console.log(`Secret ${secretName} successfully retrieved: ${secretPayload}`);
     return secretPayload;
     
   } catch (error) {
