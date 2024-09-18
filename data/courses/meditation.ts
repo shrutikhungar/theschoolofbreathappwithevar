@@ -38,50 +38,50 @@ export const MEDITATION_COURSE:Course = { id: '5', title: '9-Day Meditation Chal
         {
           section: 'Day 1 - Awareness',
           lessons: [
-            { id: '3', title: 'Learn How to Build Awareness', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day1/output.m3u8' },
-            { id: '22232', title: 'Meditation Journal-Download', type:'file',videoUrl: '' , file:'https://d1yei2z3i6k35z.cloudfront.net/3208501/6667c8c309ee8_MeditationJournalFinal.pdf'},
+            { id: '3', title: 'Learn How to Build Awareness', videoUrl: '' },
+            { id: '22232', title: 'Meditation Journal-Download', type:'file',videoUrl: '' , file:''},
           ]
         },
         {
           section: 'Day 2 - Overcoming Repetitive Thoughts',
           lessons: [
-            { id: '4', title: 'Learn How to Overcome Repetitive Thoughts', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day2/output.m3u8' },
+            { id: '4', title: 'Learn How to Overcome Repetitive Thoughts', videoUrl: '' },
           ],
         },
         {
           section: 'Day 3 - Overcoming Repetitive Thoughts',
           lessons: [
-            { id: '5', title: 'Breathwork & Meditation - Overcome Repetitive Thoughts', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day3/output.m3u8' },
+            { id: '5', title: 'Breathwork & Meditation - Overcome Repetitive Thoughts', videoUrl: '' },
           ],
         },
         {
           section: 'Day 4 - Observing Feelings and Emotions',
           lessons: [
-            { id: '6', title: 'Learn to Observe Feelings and Emotions', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day4/output.m3u8' },
+            { id: '6', title: 'Learn to Observe Feelings and Emotions', videoUrl: '' },
           ],
         },
         {
           section: 'Day 5 - Observing Feelings and Emotions',
           lessons: [
-            { id: '7', title: 'Breathwork & Meditation to Observe Feelings and Emotions', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day5/output.m3u8' },
+            { id: '7', title: 'Breathwork & Meditation to Observe Feelings and Emotions', videoUrl: '' },
           ],
         },
         {
           section: 'Day 6 - Inner Silence and Letting Go',
           lessons: [
-            { id: '8', title: 'Cultivating Inner Silence and Letting Go', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day6/output.m3u8' },
+            { id: '8', title: 'Cultivating Inner Silence and Letting Go', videoUrl: '' },
           ],
         },
         {
           section: 'Day 7 - Inner Silence and Letting Go',
           lessons: [
-            { id: '9', title: 'Breathwork & Meditation to Cultivate Inner Silence and Let Go', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day7/output.m3u8' },
+            { id: '9', title: 'Breathwork & Meditation to Cultivate Inner Silence and Let Go', videoUrl: '' },
           ],
         },
         {
           section: 'Day 8 - Letting Go of Possession and Control',
           lessons: [
-            { id: '10', title: 'Breathwork & Meditation - Letting go of Feelings of Possession and Control', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Day8/output.m3u8' },
+            { id: '10', title: 'Breathwork & Meditation - Letting go of Feelings of Possession and Control', videoUrl: '' },
           ],
         },
         {
@@ -97,7 +97,7 @@ export const MEDITATION_COURSE:Course = { id: '5', title: '9-Day Meditation Chal
         {
           section: 'Bonus Tools: More',
           lessons: [
-            { id: '16', title: 'Frequently Asked Questions about Meditation', isFromYoutube:true,videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-Day-Meditation/Bonus/output.m3u8' },
+            { id: '16', title: 'Frequently Asked Questions about Meditation', isFromYoutube:true,videoUrl: '' },
             { id: '17', title: 'Humming Bee',isFromYoutube:true, videoUrl: 'https://www.youtube.com/embed/mv3nV_M93ww?si=6ODG3aAsvhDWn-Jr' },
             { id: '18', title: '4-7-8 Breathing', isFromYoutube:true,videoUrl: 'https://www.youtube.com/embed/BNd7geB-aD4?si=1SrjqK2r-SpCv-wF' },
             { id: '19', title: 'Square Breathing',isFromYoutube:true, videoUrl: 'https://youtu.be/XyNTZ_-UuJw' },

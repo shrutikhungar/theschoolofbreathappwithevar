@@ -1,12 +1,13 @@
+//auth.service.ts
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from 'react-native';
-
-const urlApi = 'https://api-music-two.vercel.app'; // Replace with your actual API URL
+import { getSecretValue } from '../utils/secretManager';  // Import getSecretValue function
 
 const persistData = async (key: string, value: string) => {
   try {
     await AsyncStorage.setItem(key, value);
+    console.log(`Persisted key: ${key} with value: ${value}`);  // Add a log here
   } catch (error) {
     console.error('Error saving data', error);
   }
@@ -14,12 +15,24 @@ const persistData = async (key: string, value: string) => {
 
 export const handleLogin = async (email: string, password: string): Promise<boolean> => {
   try {
+    console.log('Fetching API_URL and API_SYSTEME_KEY from Google Secret Manager...');
+    
+    // Fetch the secrets for API_URL and API_SYSTEME_KEY from Google Secret Manager
+    const API_URL = await getSecretValue('API_URL');  // Retrieve API_URL from Secret Manager
+    const API_SYSTEME_KEY = await getSecretValue('API_SYSTEME_KEY');  // Retrieve API_SYSTEME_KEY
+
+    console.log('API_URL:', API_URL);  // Log the API_URL
+    console.log('API_SYSTEME_KEY:', API_SYSTEME_KEY);  // Log the API_SYSTEME_KEY
+
     const saveUserData = { email, password };
-    const saveUserInDb = await axios.post(`${urlApi}/auth/login`, saveUserData);
+    const saveUserInDb = await axios.post(`${API_URL}/auth/login`, saveUserData);
 
     if (saveUserInDb.data.success) {
+      console.log('Login successful, user authenticated');
       try {
-        const getUserFromSystemIo = await axios.get(`${urlApi}/contact?email=${email}`);
+        const getUserFromSystemIo = await axios.get(`${API_URL}/contact?email=${email}`, {
+          headers: { 'Authorization': `Bearer ${API_SYSTEME_KEY}` }
+        });
 
         if (getUserFromSystemIo.data.success && getUserFromSystemIo.data.data.items.length > 0) {
           const userToValidate = getUserFromSystemIo.data.data.items[0] ?? [];
@@ -29,7 +42,6 @@ export const handleLogin = async (email: string, password: string): Promise<bool
         }
       } catch (systemIoError) {
         console.error('Error fetching user data from SystemIo', systemIoError);
-        // We'll continue with the login process even if this fails
       }
 
       await persistData('isAuth', 'true');
@@ -41,6 +53,7 @@ export const handleLogin = async (email: string, password: string): Promise<bool
     }
   } catch (error) {
     let errorMessage = 'An unexpected error occurred';
+    console.error('Login error:', error);  // Log the error
 
     if (axios.isAxiosError(error)) {
       if (error.response) {

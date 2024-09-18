@@ -1,13 +1,5 @@
-export const API_URL = 'https://api-music-two.vercel.app';
-//export const API_URL = 'http://localhost:3001';
+// // api.config.ts
+// import 'dotenv/config';  // Load environment variables from .env
 
-import axios from 'axios';
-
-export const api_base = axios.create({
-  baseURL: API_URL,
-  timeout: 10000, // 10 seconds
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
+// // Load API URL from .env, fallback to an empty string if not found
+// export const API_URL = process.env.API_URL || '';

@@ -1,0 +1,5 @@
+# Example: If the file is inside a 'utils' folder
+utils/theschoolofbreathapp-413415-3ee6d4dcf531.json
+
+# Ignore environment variable file
+.env

@@ -7,7 +7,7 @@ export const SLEEP_COURSE:Course = { id: '7', title: 'Sleep Your Way to a Better
       {
         section: 'Sleep Mastery Course',
         lessons: [
-          { id: '1', title: 'Start here', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/SleepMasteryCourse/output.m3u8' },
+          { id: '1', title: 'Start here', videoUrl: '' },
         
         ],
       },
@@ -15,10 +15,10 @@ export const SLEEP_COURSE:Course = { id: '7', title: 'Sleep Your Way to a Better
         
     section: 'Module 1 - Lectures',
     lessons: [
-      { id: '5', title: 'Lesson 1 - The Effect of Light on Circadian Rhythms and Sleep', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module1-Lectures/Lesson1/output.m3u8' },
-      { id: '6', title: 'Lesson 2 - The Effect of Sound on Circadian Rhythms and Sleep', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module1-Lectures/Lesson2/output.m3u8' },
-      { id: '7', title: 'Lesson 3 - Nose Breathing: Solution to Sleep Apnea and Snoring', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module1-Lectures/Lesson3/output.m3u8' },
-      { id: '8', title: 'Lesson 4 - Intuitive Breathing Techniques for Effortless Sleep', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module1-Lectures/Lesson4/output.m3u8' },
+      { id: '5', title: 'Lesson 1 - The Effect of Light on Circadian Rhythms and Sleep', videoUrl: '' },
+      { id: '6', title: 'Lesson 2 - The Effect of Sound on Circadian Rhythms and Sleep', videoUrl: '' },
+      { id: '7', title: 'Lesson 3 - Nose Breathing: Solution to Sleep Apnea and Snoring', videoUrl: '' },
+      { id: '8', title: 'Lesson 4 - Intuitive Breathing Techniques for Effortless Sleep', videoUrl: '' },
     ],
     resources:[
       {
@@ -47,31 +47,31 @@ export const SLEEP_COURSE:Course = { id: '7', title: 'Sleep Your Way to a Better
   {
     section: 'Module 2 - Lectures',
     lessons: [
-      { id: '9', title: 'Lesson 5 - A Journey Through Sleep Stages', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module2-Lectures/Lesson5/output.m3u8' },
-      { id: '10', title: 'Lesson 6 - Transform your Sleep with Humming Bee Breath', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module2-Lectures/Lesson6/output.m3u8' },
-      { id: '11', title: 'Lesson 7 - Maximize Digestion for Cellular Renewal and Better Sleep', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module2-Lectures/Lesson7/output.m3u8' },
-      { id: '12', title: 'Lesson 8 - Elevate Your Bedtime Routine for Effortless Sleep', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module2-Lectures/Lesson8/output.m3u8' },
+      { id: '9', title: 'Lesson 5 - A Journey Through Sleep Stages', videoUrl: '' },
+      { id: '10', title: 'Lesson 6 - Transform your Sleep with Humming Bee Breath', videoUrl: '' },
+      { id: '11', title: 'Lesson 7 - Maximize Digestion for Cellular Renewal and Better Sleep', videoUrl: '' },
+      { id: '12', title: 'Lesson 8 - Elevate Your Bedtime Routine for Effortless Sleep', videoUrl: '' },
     ],
     resources:[
       {
         id:'sdsdwfcc',
         title:'Lecture 5 : A Journey into the Sleep Cycles!',
-        url:'https://d1yei2z3i6k35z.cloudfront.net/3208501/63f9ac2af0c24_Lecture5Goals.pdf'
+        url:''
       },
       {
         id:'sdsdwfesds',
         title:'Lecture 6 : Transform your sleep with humming bee breath!',
-        url:'https://d1yei2z3i6k35z.cloudfront.net/3208501/63f9ad3ebfc96_Lecture6Goals.pdf'
+        url:''
       },
       {
         id:'sdsdwfeqqqsss',
         title:'Lecture 7 : Maximize Digestion for Cellular Renewal and Better Sleep!',
-        url:'https://d1yei2z3i6k35z.cloudfront.net/3208501/63f9b1d57bb70_Lecture7Goals.pdf'
+        url:''
       },
       {
         id:'sdsdwfeqs',
         title:'Lecture 8 : Elevate your bedtime routine for effortless sleep!',
-        url:'https://d1yei2z3i6k35z.cloudfront.net/3208501/63f9b5427b9ed_Lecture8Goals.pdf'
+        url:''
       },
       
     ]
@@ -79,12 +79,12 @@ export const SLEEP_COURSE:Course = { id: '7', title: 'Sleep Your Way to a Better
       {
         section: 'Module 3 - Practice',
         lessons: [
-          { id: '9', title: 'Morning Wake Up Meditation', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module3-Lectures/Morning%20wake%20up%20meditation!/output.m3u8' },
-          { id: '10', title: 'Trataka: Candle Gazing Meditation', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module3-Lectures/Trataka-Candle%20Gazing%20Meditation/output.m3u8' },
-          { id: '11', title: 'Yoga Nidra 1: Sleep Meditation Before Bed', videoUrl: ' https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module3-Lectures/Yoga%20Nidra%201-Sleep%20meditation%20before%20bed/output.m3u8' },
-          { id: '12', title: 'Yoga Nidra 2: Sleep Meditation Before Bed', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module3-Lectures/Yoga%20Nidra%202-Sleep%20meditation%20before%20bed/output.m3u8' },
-          { id: '13', title: 'Black Screen Sleep Music with Healing Solfeggio Frequencies', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module3-Lectures/Black%20Screen%20Sleep%20Music%20with%20Healing%20Solfeggio%20Frequencies/output.m3u8' },
-          { id: '14', title: 'Yoga Before Bed: Sleep-Promoting Yoga Poses', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/SleepYourWayToABetterHealth/Module1-Lectures/Module3-Lectures/Yoga%20Before%20Bed-Sleep-promoting%20Yoga%20Poses/output.m3u8' },
+          { id: '9', title: 'Morning Wake Up Meditation', videoUrl: '' },
+          { id: '10', title: 'Trataka: Candle Gazing Meditation', videoUrl: '' },
+          { id: '11', title: 'Yoga Nidra 1: Sleep Meditation Before Bed', videoUrl: '' },
+          { id: '12', title: 'Yoga Nidra 2: Sleep Meditation Before Bed', videoUrl: '' },
+          { id: '13', title: 'Black Screen Sleep Music with Healing Solfeggio Frequencies', videoUrl: '' },
+          { id: '14', title: 'Yoga Before Bed: Sleep-Promoting Yoga Poses', videoUrl: '' },
         ],
       },
       {

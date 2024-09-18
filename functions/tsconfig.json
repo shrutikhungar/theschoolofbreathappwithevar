@@ -1,0 +1,16 @@
+//tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es2020", 
+    "lib": ["es2020"],  // Remove 'dom' from this array
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "outDir": "lib",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"]
+}

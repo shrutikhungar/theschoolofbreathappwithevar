@@ -5,6 +5,30 @@ import { NavigationContainer, useNavigationState, useNavigation } from '@react-n
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Firebase imports
+import { initializeApp } from 'firebase/app';
+import { getAuth, initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AlzaSyDqXx9WbrhpMdh_zne_VGGskTQBCCFjhuU", // Web API Key
+  authDomain: "sleepmusicapp-413415.firebaseapp.com", // Auth domain based on the project ID
+  projectId: "sleepmusicapp-413415", // Project ID
+  storageBucket: "sleepmusicapp-413415.appspot.com", // Storage bucket name follows the pattern: <project-id>.appspot.com
+  messagingSenderId: "116109207837", // You can find this in Firebase console
+  appId: "1:116109207837:ios:621652fdb1f6fe209f4" // App ID provided in the screenshot
+};
+
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase Auth with AsyncStorage persistence
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+});
 
 // Import screens
 import BaseHome from './screens/BaseHome';
@@ -39,7 +63,10 @@ import { AudioEffectsProvider } from './context/AudioEffectsContext';
 // Import Custom Drawer Content
 import CustomDrawerContent from './components/CustomDrawerContent';
 
-
+AsyncStorage.clear()
+  .then(() => console.log('AsyncStorage cleared'))
+  .catch((err) => console.error('Error clearing AsyncStorage', err));
+  
 const queryClient = new QueryClient();
 
 export type RootStackParamList = {
@@ -102,11 +129,8 @@ function AppNavigator() {
 }
 
 function DrawerNavigator() {
-  // Hook to determine the current route name
   const state = useNavigationState((state) => state);
   const currentRouteName = state?.routes[state.index]?.name;
-
-  // Navigation instance to go back
   const navigation = useNavigation();
 
   return (
@@ -114,18 +138,17 @@ function DrawerNavigator() {
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
         drawerStyle: {
-          width: '60%', // Adjust the width as needed
-          backgroundColor: '#998896', // Set the drawer background color
+          width: '60%', 
+          backgroundColor: '#998896',
         },
-        drawerActiveBackgroundColor: '#72616d', // Active item background color
-        drawerActiveTintColor: '#FFFFFF', // Active item text color
-        drawerInactiveTintColor: '#FFFFFF', // Inactive item text color
+        drawerActiveBackgroundColor: '#72616d',
+        drawerActiveTintColor: '#FFFFFF',
+        drawerInactiveTintColor: '#FFFFFF',
         drawerLabelStyle: {
           fontSize: 16,
           fontFamily: 'Julius Sans One',
         },
         headerRight: () => {
-          // Use navigation.canGoBack() method to check if going back is possible
           if (navigation.canGoBack() && currentRouteName !== 'Splash' && currentRouteName !== 'BaseHome') {
             return (
               <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingRight: 20 }}>
@@ -145,7 +168,7 @@ function DrawerNavigator() {
               </TouchableOpacity>
             );
           } else {
-            return null; // No back button if none of the conditions are met
+            return null;
           }
         },
       }}
@@ -155,9 +178,9 @@ function DrawerNavigator() {
         component={AppNavigator}
         options={{
           headerStyle: {
-            backgroundColor: '#b2a8b6', // Apply the background color to the Home screen specifically
+            backgroundColor: '#b2a8b6',
           },
-          headerTintColor: '#fff', // Optionally set the text color
+          headerTintColor: '#fff',
         }}
       />
     </Drawer.Navigator>
@@ -170,9 +193,12 @@ export default function App() {
   const loadFonts = async () => {
     await Font.loadAsync({
       'Julius Sans One': require('./assets/fonts/JuliusSansOne-Regular.ttf'),
+      'Ionicons': require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf'),  // Ensure Ionicons font is loaded
+      'FontAwesome': require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.ttf'), // Ensure FontAwesome font is loaded
     });
     setFontsLoaded(true);
   };
+  
 
   useEffect(() => {
     loadFonts();

@@ -1,3 +1,4 @@
+//blissCourse.ts
 export const BLISS_COURSE = { 
     id: '1', title: '9-Day Breathwork for Unconditional Bliss', description: 'COMING IN AUGUST', image: require('../../assets/BlissCourseImage.gif'), type: 'Breathwork', days: '0.5 mil', time: 'Watch At your Own Pace' ,
     reviews:[
@@ -36,8 +37,8 @@ export const BLISS_COURSE = {
         {
           section: 'Day 1 - Identify Your Emotional Pattern',
           lessons: [
-            { id: '1', title: 'Introduction to Emotional Patterns', videoUrl: 'https://storage.googleapis.com/schoolbreathvideos/9-DayBlissCourse/Day1/output.m3u8' },
-            { id: '22232', title: 'Bliss Course Journal-Download', type:'file',videoUrl: '' , file:'https://storage.googleapis.com/schoolbreathvideos/sample.pdf'},
+            { id: '1', title: 'Introduction to Emotional Patterns', videoUrl: '' },
+            { id: '22232', title: 'Bliss Course Journal-Download', type:'file',videoUrl: '' , file:''},
           ],
         },
         {

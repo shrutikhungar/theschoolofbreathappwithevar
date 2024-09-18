@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { api_base } from '../utils/api.config';
-
+import axios from 'axios';
+import { getSecretValue } from '../utils/secretManager';  // Import the function to get secrets from Google Secret Manager
 
 export type MusicTrack = {
   _id: string;
@@ -12,16 +12,22 @@ export type MusicTrack = {
   favorites: string[];
 };
 
-export const fetchMusicTracks = async (): Promise<MusicTrack[] > => {
+export const fetchMusicTracks = async (): Promise<MusicTrack[]> => {
   try {
+    // Fetch API_URL from Google Secret Manager
+    const API_URL = await getSecretValue('API_URL');
+    if (!API_URL) {
+      throw new Error('API_URL not found');
+    }
+
     // Try to get cached data first
     const cachedData = await AsyncStorage.getItem('musicTracks');
     if (cachedData) {
       return JSON.parse(cachedData);
     }
 
-    // If no cached data, fetch from API
-    const response = await api_base.get<MusicTrack[]>('/musics');
+    // If no cached data, fetch from API using the fetched API_URL
+    const response = await axios.get<MusicTrack[]>(`${API_URL}/musics`);
     const musicTracks = response.data;
 
     // Cache the new data
@@ -33,5 +39,3 @@ export const fetchMusicTracks = async (): Promise<MusicTrack[] > => {
     throw error;
   }
 };
-
-// You can add more music-related service functions here
