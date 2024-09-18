@@ -37,7 +37,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const fetchApiUrl = async () => {
       try {
         const fetchedApiUrl: string | undefined = await getSecretValue('API_URL');  // Fetch from Google Secret Manager
-        console.log('Fetched API_URL:', fetchedApiUrl);  // For testing
         
         // Only set the API URL if it exists, otherwise, set it to null or throw an error
         if (fetchedApiUrl) {

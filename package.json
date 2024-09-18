@@ -40,6 +40,7 @@
     "firebase": "^10.13.1",
     "firebase-functions": "^6.0.1",
     "link": "^2.1.1",
+    "lint": "^0.8.19",
     "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-content-loader": "^7.0.2",
@@ -65,6 +66,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@types/axios": "^0.14.0",
     "@types/lodash.debounce": "^4.0.9",
     "@types/react": "~18.2.45",
     "@types/react-native": "^0.73.0",
