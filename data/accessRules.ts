@@ -27,6 +27,8 @@ export const fullAccessTags = [
     'Enrolled_to_Sleep_Membership': ['7'], // Access to Sleep Course only (ID: 7)
     'Purchased_9-Day Breathwork Course': ['4'], // Access to 9-Day-Breathwork course only (ID: 4)
     'Purchased_9-Day Meditation Course': ['5'], // Access to 9-Day-Meditation course only (ID: 5)
+    'Purchased_Swara_Yoga_Course': ['6'], // Access to Swara_Yoga_Course only (ID: 5)
+    'Purchased_9-Day Bliss Course': ['1'], // Access to Bliss course only (ID: 5)
   };
   
   export const combinedAccessRules = [
