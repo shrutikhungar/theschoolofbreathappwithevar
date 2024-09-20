@@ -124,11 +124,11 @@ export default function CustomDrawerContent(props) {
                   {membershipStatus}
                 </Text>
                 {/* Conditionally render the Upgrade button */}
-                {(membershipStatus === 'Basic Membership' || membershipStatus === 'Limited Access') && (
+                {/* {(membershipStatus === 'Basic Membership' || membershipStatus === 'Limited Access') && (
                   <TouchableOpacity style={[styles.upgradeButton, { borderColor: styles.drawerButton.borderColor }]} onPress={handleUpgrade}>
                     <Text style={styles.upgradeButtonText}>Upgrade</Text>
                   </TouchableOpacity>
-                )}
+                )} */}
               </>
             )}
           </View>

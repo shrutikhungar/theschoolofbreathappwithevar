@@ -8,6 +8,7 @@ import { courseThemes, createCourseStyles, ThemeColors } from '../styles/courses
 import { RootStackParamList } from '../App';
 import { StackNavigationProp } from '@react-navigation/stack';
 import * as WebBrowser from 'expo-web-browser';
+import { web_app_url } from '../utils/api.config';
 
 interface CourseDetailLayoutProps {
   courseTitle: string;
@@ -58,7 +59,7 @@ export const CourseDetailLayout: React.FC<CourseDetailLayoutProps> = ({
     if (lesson.type === 'file' && lesson.file) {
       // Open PDF link in browser
       const pdfUrl = encodeURIComponent(lesson.file);
-      const webAppUrl = `https://sleepappmusic.vercel.app/pdfViewer?pdfUrl=${pdfUrl}`;
+      const webAppUrl = `${web_app_url}/pdfViewer?pdfUrl=${pdfUrl}`;
       await _handlePressButtonAsync(webAppUrl);
     } else if (lesson.videoUrl) {
       // Handle YouTube videos vs non-YouTube videos

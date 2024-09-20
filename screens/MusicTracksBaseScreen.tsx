@@ -129,7 +129,7 @@ export default function MusicTracksScreen() {
   };
 
   const handleUpgradeNow = () => {
-    navigation.navigate('Login');
+    navigation.navigate(isAuthenticated ? 'Subscription' : 'Login');
   };
 
   const filterTracks = (tracks: MusicTrack[]) => {
@@ -196,7 +196,6 @@ export default function MusicTracksScreen() {
           )}
         </ImageBackground>
       </ImageBackground>
-
       <ImageBackground source={require('../assets/MusicBaseBack.png')}>
         <View style={styles.searchContainer}>
           <Ionicons name="search" size={20} color="#666" style={styles.searchIcon} />
@@ -254,13 +253,28 @@ export default function MusicTracksScreen() {
         </View>
       </Modal>
 
-      {(!isAuthenticated || !musics?.isPremium) && !isLoading && (
-        <LinearGradient colors={['transparent', '#a59db4']} style={styles.upgradeButtonContainer}>
-          <TouchableOpacity style={styles.upgradeButton} onPress={handleUpgradeNow}>
-            <Text style={styles.upgradeButtonText}>Login to Access</Text>
-          </TouchableOpacity>
-        </LinearGradient>
-      )}
+      {!isLoading && (
+  <LinearGradient colors={['transparent', '#a59db4']} style={styles.upgradeButtonContainer}>
+    {!isAuthenticated ? (
+      // Display "Login to Access" for non-authenticated users
+      <TouchableOpacity style={styles.upgradeButton} onPress={handleUpgradeNow}>
+        <Text style={styles.upgradeButtonText}>
+          Login to Access
+        </Text>
+      </TouchableOpacity>
+    ) : (
+      !musics?.isPremium && (
+        // Display greyed-out "Premium Members Only" button for authenticated users without premium access
+        <View style={[styles.upgradeButton, { backgroundColor: '#cccccc' }]}>
+          <Text style={[styles.upgradeButtonText, { color: '#888888' }]}>
+            Premium Members Only
+          </Text>
+        </View>
+      )
+    )}
+  </LinearGradient>
+)}
     </View>
   );
 }
+

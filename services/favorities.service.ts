@@ -1,17 +1,16 @@
 import axios from 'axios';
-import { getSecretValue } from '../utils/secretManager';  // Import the function to get secrets from Google Secret Manager
+import { API_URL } from '@env';  // Import API_URL from environment variables
 
 export const toggleFavorite = async (musicId: string, token: string): Promise<void> => {
   try {
-    // Fetch API_URL from Google Secret Manager
-    const API_URL = await getSecretValue('API_URL');
+    // Ensure the API_URL is available
     if (!API_URL) {
       throw new Error('API_URL not found');
     }
 
-    // Perform the API request using the fetched API_URL
+    // Perform the API request using the API_URL from environment variables
     await axios.put(
-      `${API_URL}/user/add-favorite/music/${musicId}`,  // Use the API_URL fetched from Secret Manager
+      `${API_URL}/user/add-favorite/music/${musicId}`,  // Use the API_URL fetched from environment variables
       {},
       {
         headers: {

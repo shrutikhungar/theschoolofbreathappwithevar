@@ -1,4 +1,3 @@
-//CourseListHomeScreen.tsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, TouchableOpacity, FlatList, ImageBackground, Image, ActivityIndicator, Linking } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -23,8 +22,12 @@ type Props = {
   route: CourseListScreenRouteProp;
 };
 
-const handleUpgradeNow = () => {
-  Linking.openURL('https://www.meditatewithabhi.com/holistic-membership');
+const handleUpgradeNow = (navigation: any, isAuthenticated: boolean) => {
+  if (!isAuthenticated) {
+    navigation.navigate('Login'); // Navigate to Login screen if not authenticated
+  } else {
+    Linking.openURL('https://www.meditatewithabhi.com/holistic-membership'); // Upgrade URL for Premium
+  }
 };
 
 const CourseListHomeScreen: React.FC<Props> = ({ navigation }) => {
@@ -66,10 +69,6 @@ const CourseListHomeScreen: React.FC<Props> = ({ navigation }) => {
 
   const accessibleCourses = useCourseAccess(userTags || [], courses);
 
-  const handleUpgradeNow = () => {
-    navigation.navigate('Login');
-  };
-
   const renderCourse = ({ item, index }: { item: Course; index: number }) => {
     const hasAccess = accessibleCourses.includes(item.id);
 
@@ -93,9 +92,20 @@ const CourseListHomeScreen: React.FC<Props> = ({ navigation }) => {
             <View style={styles.lockedContainer}>
               <Ionicons name="lock-closed" size={18} color="#888" />
               <LinearGradient colors={['transparent', '#a59db4']} style={styles.upgradeButtonContainer}>
-                <TouchableOpacity style={styles.upgradeButton} onPress={handleUpgradeNow}>
-                  <Text style={styles.upgradeButtonText}>
-                    {isAuthenticated ? 'Get Premium Access' : 'Login to Access'}
+                {/* Enable button for unauthenticated users, disable for authenticated users without premium access */}
+                <TouchableOpacity
+                  style={[
+                    styles.upgradeButton,
+                    !isAuthenticated ? { backgroundColor: '#679fd3' } : { backgroundColor: '#cccccc' }
+                  ]}
+                  onPress={() => handleUpgradeNow(navigation, isAuthenticated)}
+                  disabled={isAuthenticated} // Disable if authenticated but no access
+                >
+                  <Text style={[
+                    styles.upgradeButtonText,
+                    !isAuthenticated ? { color: '#ffffff' } : { color: '#888888' }
+                  ]}>
+                    {isAuthenticated ? 'Premium Members Only' : 'Login to Access'}
                   </Text>
                 </TouchableOpacity>
               </LinearGradient>
@@ -144,15 +154,17 @@ const CourseListHomeScreen: React.FC<Props> = ({ navigation }) => {
   }
 
   return (
-    <FlatList
-      data={courses}
-      renderItem={renderCourse}
-      keyExtractor={(item) => item.id}
-      ListHeaderComponent={renderHeader}
-      ListFooterComponent={renderFooter}
-      contentContainerStyle={styles.listContainer}
-      style={{ flex: 1 }}  // Make sure FlatList occupies full height
-    />
+    <View style={styles.container}>
+      <FlatList
+        data={courses}
+        renderItem={renderCourse}
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={renderHeader}
+        contentContainerStyle={styles.listContainer}
+        style={{ flex: 1 }}  // Make sure FlatList occupies full height
+      />
+      {renderFooter()}
+    </View>
   );
 };
 

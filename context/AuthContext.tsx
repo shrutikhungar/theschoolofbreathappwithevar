@@ -1,9 +1,7 @@
-//AuthContext.tsx
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-//import { API_URL } from '@env';  // Import API_URL from environment variables
-import { getSecretValue } from '../utils/secretManager';  // Import getSecretValue function
+import { API_URL } from '@env';  // Import API_URL from environment variables
 
 export type User = {
   id: string;
@@ -19,7 +17,7 @@ type AuthContextType = {
   isLoading: boolean;
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
-  register: (fullName: string, email: string, password: string) => Promise<void>; // New function
+  register: (fullName: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   updateUserInfo: (userInfo: Partial<User>) => Promise<void>;
 };
@@ -30,30 +28,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
-  const [apiUrl, setApiUrl] = useState<string | null>(null);  // Store the fetched API URL
 
   useEffect(() => {
-    // Fetch the API URL from Google Secret Manager on app start
-    const fetchApiUrl = async () => {
-      try {
-        const fetchedApiUrl: string | undefined = await getSecretValue('API_URL');  // Fetch from Google Secret Manager
-        
-        // Only set the API URL if it exists, otherwise, set it to null or throw an error
-        if (fetchedApiUrl) {
-          setApiUrl(fetchedApiUrl);
-        } else {
-          console.error('API_URL not found or undefined');
-          setApiUrl(null);  // or handle this case in another way
-        }
-      } catch (error) {
-        console.error('Error fetching API_URL from Google Secret Manager:', error);
-      }
-    };
-  
-    fetchApiUrl();
     checkAuthStatus();
   }, []);
-  
 
   const checkAuthStatus = async () => {
     setIsLoading(true);
@@ -75,8 +53,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      const response = await axios.post(`https://api-music-two.vercel.app/auth/login`, { email, password });
-      const { token, user } = response.data    
+      const response = await axios.post(`${API_URL}/auth/login`, { email, password });  // Use API_URL from env
+      const { token, user } = response.data;
       await AsyncStorage.setItem('userToken', token);
       await AsyncStorage.setItem('userData', JSON.stringify(user));
       setIsAuthenticated(true);
@@ -99,7 +77,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         password,
       });
       const { token, user } = response.data;
-      
       await AsyncStorage.setItem('userToken', token);
       await AsyncStorage.setItem('userData', JSON.stringify(user));
       setIsAuthenticated(true);
@@ -137,7 +114,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const updatedUser = { ...user, ...userInfo };
       await AsyncStorage.setItem('userData', JSON.stringify(updatedUser));
       setUser(updatedUser);
-      await axios.put(`${API_URL}/user`, updatedUser);
+      await axios.put(`${API_URL}/user`, updatedUser);  // Use API_URL from env
     } catch (error) {
       console.error('Update user info error:', error);
       throw error;

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { getSecretValue } from '../utils/secretManager';  // Import the function to get secrets from Google Secret Manager
+import { API_URL } from '@env';  // Import the API_URL from the environment variables
 
 export type MusicTrack = {
   _id: string;
@@ -14,8 +14,7 @@ export type MusicTrack = {
 
 export const fetchMusicTracks = async (): Promise<MusicTrack[]> => {
   try {
-    // Fetch API_URL from Google Secret Manager
-    const API_URL = await getSecretValue('API_URL');
+    // Ensure the API_URL is available
     if (!API_URL) {
       throw new Error('API_URL not found');
     }
@@ -26,7 +25,7 @@ export const fetchMusicTracks = async (): Promise<MusicTrack[]> => {
       return JSON.parse(cachedData);
     }
 
-    // If no cached data, fetch from API using the fetched API_URL
+    // If no cached data, fetch from API using the API_URL
     const response = await axios.get<MusicTrack[]>(`${API_URL}/musics`);
     const musicTracks = response.data;
 

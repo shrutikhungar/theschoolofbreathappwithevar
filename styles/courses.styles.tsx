@@ -156,21 +156,19 @@ export const coursesStyle = StyleSheet.create({
     fontSize: 12,
   },
   floatingButton: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    width: 60,
+    position: 'absolute',  // Ensure the button is floating
+    bottom: 770,            // Adjust the vertical position to be 20px from the bottom
+    right: 20,             // Adjust the horizontal position from the right
+    width: 60,             // Set button size
     height: 60,
-    borderRadius: 30,
-    backgroundColor: '#72616d',
+    borderRadius: 30,      // Make it circular
+    backgroundColor: '#008fd8',  // Give it a visible color
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 8,
-    shadowColor: '#000',
+    zIndex: 1000,          // Ensure it is above other elements
+    shadowColor: '#000',   // Add shadow for visibility
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
-    shadowOffset: { width: 2, height: 2 },
-    shadowRadius: 2,
-    borderWidth: 3,
-    borderColor: '#d1bc94',
+    shadowRadius: 4,
   },
 });

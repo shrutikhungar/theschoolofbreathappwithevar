@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getSecretValue } from '../utils/secretManager';  // Import the function to get secrets from Google Secret Manager
+import { API_URL } from '@env';  // Import the API_URL from environment variables
 import { CategoryType } from '../components/modals/CategoryModal';
 import { MusicTrack } from './sounds.service';
 
@@ -10,19 +10,17 @@ export interface MusicResponsePremium {
 
 class CategoryService {
   public async getCategories(): Promise<CategoryType[]> {
-    // Fetch API_URL from Google Secret Manager
-    const API_URL = await getSecretValue('API_URL');
+    // Ensure the API_URL is available
     if (!API_URL) {
       throw new Error('API_URL not found');
     }
 
-    const res = await axios.get<CategoryType[]>(`${API_URL}/categories/`);  // Use the API_URL fetched from Secret Manager
+    const res = await axios.get<CategoryType[]>(`${API_URL}/categories/`);  // Use the API_URL from environment variables
     return res.data;
   }
 
   public async getMusicByCategory(categoryId: string, token: string): Promise<MusicResponsePremium> {
-    // Fetch API_URL from Google Secret Manager
-    const API_URL = await getSecretValue('API_URL');
+    // Ensure the API_URL is available
     if (!API_URL) {
       throw new Error('API_URL not found');
     }
@@ -36,8 +34,7 @@ class CategoryService {
   }
 
   public async getFavorites({ category, token }: { category: string; token: string }): Promise<MusicResponsePremium> {
-    // Fetch API_URL from Google Secret Manager
-    const API_URL = await getSecretValue('API_URL');
+    // Ensure the API_URL is available
     if (!API_URL) {
       throw new Error('API_URL not found');
     }
@@ -51,8 +48,7 @@ class CategoryService {
   }
 
   public async getPreviewMusicByCategory(categoryId: string) {
-    // Fetch API_URL from Google Secret Manager
-    const API_URL = await getSecretValue('API_URL');
+    // Ensure the API_URL is available
     if (!API_URL) {
       throw new Error('API_URL not found');
     }

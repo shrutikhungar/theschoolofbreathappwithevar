@@ -1,21 +1,12 @@
 import axios from 'axios';
-import { getSecretValue } from '../utils/secretManager';  // Import getSecretValue function
+import { API_SYSTEME_KEY, SYSTEME_API_URL } from '@env';  // Fetch API keys and URL from .env
 
 export const fetchUserTags = async (userEmail: string) => {
   try {
-    // Fetch API key and URL from Google Secret Manager
-    const API_SYSTEME_KEY = await getSecretValue('API_SYSTEME_KEY');
-    const SYSTEME_API_URL = await getSecretValue('SYSTEME_API_URL');
-
-    // Ensure that the secrets were fetched successfully
-    if (!API_SYSTEME_KEY || !SYSTEME_API_URL) {
-      throw new Error('Unable to retrieve API keys from Google Secret Manager');
-    }
-
-    // Make the API request using the fetched secrets
+    // Make the API request using the secrets from the .env file
     const response = await axios.get(`${SYSTEME_API_URL}/contacts?email=${userEmail}`, {
       headers: {
-        'x-api-key': API_SYSTEME_KEY,  // Use the fetched API key
+        'x-api-key': API_SYSTEME_KEY,  // Use the fetched API key from .env
       },
     });
 
@@ -35,4 +26,3 @@ export const fetchUserTags = async (userEmail: string) => {
     return [];
   }
 };
-

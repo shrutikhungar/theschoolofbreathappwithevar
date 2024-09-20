@@ -112,7 +112,7 @@ export const tracksStyles = StyleSheet.create({
   },
   upgradeButton: {
     backgroundColor: '#72616d',  // Updated to match the gradient's start color
-    padding: 15,
+    padding: 10,
     borderRadius: 25,
     width: '80%',
     alignItems: 'center',
@@ -124,7 +124,7 @@ export const tracksStyles = StyleSheet.create({
     color: '#e8cfb1', // Light text color for contrast
     fontSize: 16,
     fontWeight: 'bold',
-  },
+  }, 
   trackListContainer: {
     flex: 1,
   },

@@ -1,5 +1,7 @@
-// // api.config.ts
-// import 'dotenv/config';  // Load environment variables from .env
+import { API_URL, WEB_APP_URL } from '@env';  // Import both API_URL and WEB_APP_URL from the .env file
 
-// // Load API URL from .env, fallback to an empty string if not found
-// export const API_URL = process.env.API_URL || '';
+// Export the API URL
+export const api_base_url = API_URL || '';
+
+// Export the Web App URL
+export const web_app_url = WEB_APP_URL || '';
