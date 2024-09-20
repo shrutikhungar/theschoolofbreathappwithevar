@@ -3,12 +3,9 @@ import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Modal, Linki
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { useAuth } from '../context/AuthContext';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useQuery } from '@tanstack/react-query';
 import { fetchUserTags } from '../services/tags.service';
 import { fullAccessMemberTags, limitedAccessTags } from '../data/accessRules';
-import { PaymentRequest } from 'react-native-payments'; // Import PaymentRequest from react-native-payments
-import { MERCHANT_IDENTIFIER, SUPPORTED_NETWORKS, COUNTRY_CODE, CURRENCY_CODE, SUBSCRIPTION_LABEL, SUBSCRIPTION_AMOUNT } from '@env';  // Import sensitive data from env
 
 export default function CustomDrawerContent(props) {
   const { user, logout } = useAuth();
@@ -26,7 +23,7 @@ export default function CustomDrawerContent(props) {
 
   const membershipStatus = useMemo(() => {
     if (!user) {
-      return 'Basic Membership'; // Display "Basic Membership" if not logged in
+      return 'Basic Membership';
     }
     return userHasFullAccess ? 'Premium Membership' : userHasLimitedAccess ? 'Limited Access' : 'Basic Membership';
   }, [user, userHasFullAccess, userHasLimitedAccess]);
@@ -39,52 +36,6 @@ export default function CustomDrawerContent(props) {
     setShareModalVisible(false);
   };
 
-  const handleUpgrade = () => {
-    const paymentRequest = new PaymentRequest(
-      // Payment method configuration (Apple Pay)
-      [{
-        supportedMethods: ['apple-pay'],
-        data: {
-          merchantIdentifier: MERCHANT_IDENTIFIER,  // Loaded from .env
-          supportedNetworks: SUPPORTED_NETWORKS.split(','),  // Loaded from .env
-          countryCode: COUNTRY_CODE,  // Loaded from .env
-          currencyCode: CURRENCY_CODE,  // Loaded from .env
-        }
-      }],
-      // Transaction details
-      {
-        total: {
-          label: SUBSCRIPTION_LABEL,  // Loaded from .env
-          amount: SUBSCRIPTION_AMOUNT,  // Loaded from .env
-        },
-        displayItems: [
-          {
-            label: '1 Year Subscription',
-            amount: SUBSCRIPTION_AMOUNT,  // Loaded from .env
-          }
-        ]
-      }
-    );
-
-    // Checking whether Apple Pay is available
-    paymentRequest.canMakePayments().then((canMakePayment: boolean) => {
-      if (canMakePayment) {
-        paymentRequest.show().then((paymentResponse: any) => {
-          paymentResponse.complete('success'); // Complete the payment
-          Alert.alert('Payment Successful', 'Your membership has been upgraded!');
-        }).catch((error: any) => {
-          Alert.alert('Payment Failed', 'Apple Pay could not complete the payment.');
-          console.error('Apple Pay Error:', error);
-        });
-      } else {
-        Alert.alert('Apple Pay Not Available', 'Apple Pay is not supported on this device.');
-      }
-    }).catch((error: any) => {
-      console.error('Error checking Apple Pay:', error);
-    });
-  };
-
-  // ** This is the function that was missing **
   const handleWhatsAppShare = () => {
     Linking.canOpenURL('whatsapp://send').then(supported => {
       if (!supported) {
@@ -123,12 +74,6 @@ export default function CustomDrawerContent(props) {
                 >
                   {membershipStatus}
                 </Text>
-                {/* Conditionally render the Upgrade button */}
-                {/* {(membershipStatus === 'Basic Membership' || membershipStatus === 'Limited Access') && (
-                  <TouchableOpacity style={[styles.upgradeButton, { borderColor: styles.drawerButton.borderColor }]} onPress={handleUpgrade}>
-                    <Text style={styles.upgradeButtonText}>Upgrade</Text>
-                  </TouchableOpacity>
-                )} */}
               </>
             )}
           </View>
@@ -168,20 +113,32 @@ export default function CustomDrawerContent(props) {
       </DrawerContentScrollView>
 
       {/* Floating Share and Chat Buttons */}
-      <TouchableOpacity style={styles.floatingButton} onPress={handleShare}>
+      <TouchableOpacity style={[styles.floatingButton, { zIndex: 100 }]} onPress={handleShare}>
         <Ionicons name="share-social" size={28} color="white" />
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={[styles.floatingChatButton, { right: isTablet ? 90 : 20 }]}
-        onPress={handleWhatsAppShare} // Call the WhatsApp Share function
+        style={[styles.floatingChatButton, { right: isTablet ? 90 : 20, zIndex: 100 }]}
+        onPress={handleWhatsAppShare}
       >
         <Ionicons name="logo-whatsapp" size={28} color="white" />
       </TouchableOpacity>
 
-      {/* Share Modal */}
-      <Modal visible={shareModalVisible} transparent={true} animationType="slide" onRequestClose={closeModal}>
-        {/* Modal content */}
+      {/* Simplified Share Modal */}
+      <Modal
+        visible={shareModalVisible}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={closeModal}
+      >
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Share this app</Text>
+            <TouchableOpacity onPress={closeModal} style={styles.closeModalButton}>
+              <Text style={styles.closeModalText}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </Modal>
     </ImageBackground>
   );
@@ -194,7 +151,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    paddingBottom: 20, // Allow space for smaller screens
+    paddingBottom: 20, 
   },
   profileContainer: {
     alignItems: 'center',
@@ -250,19 +207,6 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10,
   },
-  upgradeButton: {
-    backgroundColor: '#f5e6a0',
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    borderRadius: 20,
-    marginTop: 10,
-    borderWidth: 3,
-  },
-  upgradeButtonText: {
-    color: '#72616d',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
   drawerItemListContainer: {
     paddingTop: 30,
   },
@@ -299,6 +243,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     borderWidth: 3,
     borderColor: '#d1bc94',
+    zIndex: 100,
   },
   floatingChatButton: {
     position: 'absolute',
@@ -316,5 +261,33 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     borderWidth: 3,
     borderColor: '#d1bc94',
+    zIndex: 100,
+  },
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    width: '80%',
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalTitle: {
+    fontSize: 18,
+    marginBottom: 20,
+    fontWeight: 'bold',
+  },
+  closeModalButton: {
+    backgroundColor: '#72616d',
+    padding: 10,
+    borderRadius: 10,
+  },
+  closeModalText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
