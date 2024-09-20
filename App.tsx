@@ -8,27 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Firebase imports
-import { initializeApp } from 'firebase/app';
-import { getAuth, initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AlzaSyDqXx9WbrhpMdh_zne_VGGskTQBCCFjhuU", // Web API Key
-  authDomain: "sleepmusicapp-413415.firebaseapp.com", // Auth domain based on the project ID
-  projectId: "sleepmusicapp-413415", // Project ID
-  storageBucket: "sleepmusicapp-413415.appspot.com", // Storage bucket name follows the pattern: <project-id>.appspot.com
-  messagingSenderId: "116109207837", // You can find this in Firebase console
-  appId: "1:116109207837:ios:621652fdb1f6fe209f4" // App ID provided in the screenshot
-};
-
-// Initialize Firebase app
-const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase Auth with AsyncStorage persistence
-const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
-});
 
 // Import screens
 import BaseHome from './screens/BaseHome';

@@ -18,15 +18,7 @@
           "microphonePermission": "Allow The School of Breath to access your microphone."
         }
       ],
-      "expo-font",
-      [
-        "expo-firebase-core",
-        {
-          "ios": {
-            "googleServicesFile": "./GoogleService-Info.plist"
-          }
-        }
-      ]
+      "expo-font"
     ],
     "ios": {
       "buildNumber": "6",
@@ -61,7 +53,7 @@
     },
     "extra": {
       "eas": {
-        
+
       }
     }
   }
