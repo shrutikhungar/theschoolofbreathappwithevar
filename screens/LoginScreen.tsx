@@ -154,12 +154,12 @@ export default function LoginScreen() {
               disabled={isLoading}
               style={styles.buttonWrapper}
             >
-              <LinearGradient
+              {/* <LinearGradient
                 colors={['#ccc9da', '#72616d', '#a593a4', '#a593a4', '#ccc9da']}
                 style={styles.registerButton}
               >
                 <Text style={styles.buttonText}>New users?</Text>
-              </LinearGradient>
+              </LinearGradient> */}
             </TouchableOpacity>
           </View>
 
@@ -168,17 +168,17 @@ export default function LoginScreen() {
             CONTACT US
           </Text>
           <View style={styles.contactContainer}>
-            <TouchableOpacity onPress={() => navigation.navigate('BookACallScreen')}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('BookACallScreen')}>
               <Image source={require('../assets/bookcall.png')} style={styles.contactIcon} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity onPress={() => Linking.openURL('mailto:connect@meditatewithabhi.com')}>
               <Image source={require('../assets/email.png')} style={styles.contactIcon} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('WebsiteScreen')}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('WebsiteScreen')}>
               <Image source={require('../assets/website.png')} style={styles.contactIcon} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
-          <Text style={[styles.website, { marginTop: isTablet ? -15 : -20 }]}>www.meditatewithabhi.com</Text>
+          {/* <Text style={[styles.website, { marginTop: isTablet ? -15 : -20 }]}>www.meditatewithabhi.com</Text> */}
         </ScrollView>
       </KeyboardAvoidingView>
 
