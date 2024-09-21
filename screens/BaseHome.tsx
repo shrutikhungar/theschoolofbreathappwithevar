@@ -19,7 +19,8 @@ export default function BaseHome() {
   const buttons = [
     { text: 'SLEEP MUSIC', navigateTo: 'MusicTracksBase', icon: require('../assets/music-icon.png') },
     { text: 'LAUNCH COURSES', navigateTo: 'CourseListHome', icon: require('../assets/course-icon.png') },
-    { text: 'OUR COURSES', navigateTo: 'OurCoursesScreen', icon: require('../assets/chatbotIcon.png') },
+    { text: 'BREATH TOOLS-Coming Soon', navigateTo: '', icon: require('../assets/course-icon.png') },
+    // { text: 'OUR COURSES', navigateTo: 'OurCoursesScreen', icon: require('../assets/chatbotIcon.png') },
   ];
 
   // Choose the banner image based on the device type
