@@ -173,15 +173,15 @@ export default function RegisterEmailScreen() {
 
         <Text style={[styles.contactTitle, { fontSize: isTablet ? 16 : 18 }]}>CONTACT US</Text>
         <View style={styles.contactContainer}>
-          {/* <TouchableOpacity onPress={() => navigation.navigate('BookACallScreen')}>
+          <TouchableOpacity onPress={() => navigation.navigate('BookACallScreen')}>
             <Image source={require('../assets/bookcall.png')} style={styles.contactIcon} />
-          </TouchableOpacity> */}
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => Linking.openURL('mailto:connect@meditatewithabhi.com')}>
             <Image source={require('../assets/email.png')} style={styles.contactIcon} />
           </TouchableOpacity>
-          {/* <TouchableOpacity onPress={() => navigation.navigate('WebsiteScreen')}>
+          <TouchableOpacity onPress={() => navigation.navigate('WebsiteScreen')}>
             <Image source={require('../assets/website.png')} style={styles.contactIcon} />
-          </TouchableOpacity> */}
+          </TouchableOpacity>
         </View>
         <Text style={[styles.website, { marginTop: isTablet ? -15 : -20 }]}>www.meditatewithabhi.com</Text>
       </ImageBackground>
