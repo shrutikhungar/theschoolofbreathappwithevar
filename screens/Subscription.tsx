@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, ImageBackground, Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Dimensions } from 'react-native';
 
 const SubscriptionScreen = () => {
-  const navigation = useNavigation();
+  const [selectedOption, setSelectedOption] = useState('');
   const { width } = Dimensions.get('window');
   const isTablet = width >= 768;
 
-  // State to track the selected option
-  const [selectedOption, setSelectedOption] = useState('Yearly');
-
-  const handleSubscribe = (option: string) => {
+  const handleSubscribe = (option) => {
     setSelectedOption(option);
-    console.log(`Selected option: ${option}`);
-    // Handle purchase or navigation based on the selected option
-  };
-
-  const handlePrivacyPolicy = () => {
-    navigation.navigate('PrivacyPolicy');
+    console.log(`Selected subscription: ${option}`);
+    // Handle the subscription logic here based on the selected option
   };
 
   return (
@@ -25,60 +17,50 @@ const SubscriptionScreen = () => {
       source={isTablet ? require('../assets/profileImageBackIpad.jpg') : require('../assets/profileImageBack.png')}
       style={styles.background}
     >
-      <View style={styles.container}>
-        {/* Header */}
-        <Text style={styles.title}>Upgrade Your Plan</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}>Choose Your Plan</Text>
 
-        {/* Subheading */}
-        <Text style={styles.subtitle}>Choose your subscription plan:</Text>
+        {/* Course Only */}
+        <TouchableOpacity
+          style={[styles.optionTile, selectedOption === 'CourseOnly' && styles.selectedOption]}
+          onPress={() => handleSubscribe('CourseOnly')}
+        >
+          <Text style={styles.optionTitle}>Course Only</Text>
+          <Text style={styles.optionDescription}>One-time payment of $19.99 for full access to the course.</Text>
+        </TouchableOpacity>
 
-        {/* Benefits */}
+        {/* Monthly Membership */}
+        <TouchableOpacity
+          style={[styles.optionTile, selectedOption === 'Monthly' && styles.selectedOption]}
+          onPress={() => handleSubscribe('Monthly')}
+        >
+          <Text style={styles.optionTitle}>Monthly Membership</Text>
+          <Text style={styles.optionDescription}>$12.99/month. Cancel anytime.</Text>
+        </TouchableOpacity>
+
+        {/* Yearly Membership */}
+        <TouchableOpacity
+          style={[styles.optionTile, selectedOption === 'Yearly' && styles.selectedOption]}
+          onPress={() => handleSubscribe('Yearly')}
+        >
+          <Text style={styles.optionTitle}>Yearly Membership</Text>
+          <Text style={styles.optionDescription}>$89.99/year. Save more with an annual plan!</Text>
+        </TouchableOpacity>
+
+        {/* Benefits Section */}
         <View style={styles.benefits}>
-          <Text style={styles.benefitText}>⚡ Access all courses with membership</Text>
-          <Text style={styles.benefitText}>⚡ Access all sleep features with membership </Text>
-          <Text style={styles.benefitText}>⚡ Access exclusive 1-1 community support</Text>
+          <Text style={styles.benefitText}>• Access all courses with membership</Text>
+          <Text style={styles.benefitText}>• Access to all sleep features: Solfeggio frequencies designed to heal your body and mind</Text>
+          <Text style={styles.benefitText}>• Exclusive 1-1 community support</Text>
         </View>
 
-        {/* Pricing options */}
-        <View style={styles.pricing}>
-          <Pressable
-            style={[styles.priceOption, selectedOption === 'Course Only' && styles.selectedOption]}
-            onPress={() => handleSubscribe('Course Only')}
-          >
-            <Text style={styles.priceText}>Course Only</Text>
-            <Text style={styles.priceTextSmall}>$19.99 one-time payment</Text>
-          </Pressable>
-
-          <Pressable
-            style={[styles.priceOption, selectedOption === 'Monthly' && styles.selectedOption]}
-            onPress={() => handleSubscribe('Monthly')}
-          >
-            <Text style={styles.priceText}>Monthly</Text>
-            <Text style={styles.priceTextSmall}>$12.99/month</Text>
-          </Pressable>
-
-          <Pressable
-            style={[styles.priceOption, selectedOption === 'Yearly' && styles.selectedOption]}
-            onPress={() => handleSubscribe('Yearly')}
-          >
-            <Text style={styles.priceText}>Yearly</Text>
-            <Text style={styles.priceTextSmall}>$89.99/year</Text>
-          </Pressable>
-        </View>
-
-        {/* Buy Now button */}
-        <Pressable style={styles.startButton} onPress={() => handleSubscribe(selectedOption)}>
-          <Text style={styles.buttonText}>Buy Now ✨</Text>
-        </Pressable>
-
-        {/* Terms and Privacy Policy */}
-        <Text style={styles.terms}>
-          All plans include access to premium features. Terms and conditions apply.
-        </Text>
-        <Pressable onPress={handlePrivacyPolicy}>
-          <Text style={styles.restoreText}>Privacy Policy</Text>
-        </Pressable>
-      </View>
+        <TouchableOpacity
+          style={styles.confirmButton}
+          onPress={() => console.log('Proceed to subscribe')}
+        >
+          <Text style={styles.confirmButtonText}>Subscribe Now</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </ImageBackground>
   );
 };
@@ -89,73 +71,66 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   container: {
-    flex: 1,
-    padding: 20,
+    flexGrow: 1,
+    alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
+    backgroundColor: 'transparent', // Set to transparent so background image is visible
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    marginBottom: 20,
     textAlign: 'center',
-    marginBottom: 20,
-    marginTop: 90
+    marginTop: 90, // Adjusted for background space
   },
-  subtitle: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  pricing: {
-    marginBottom: 20,
-  },
-  priceOption: {
-    padding: 15,
-    borderWidth: 2,
-    borderColor: '#ccc',
+  optionTile: {
+    width: '90%',
+    padding: 20,
+    backgroundColor: '#f1f1f1',
     borderRadius: 10,
-    marginBottom: 10,
-    backgroundColor: '#f9f9f9',
+    marginVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
   selectedOption: {
     borderColor: '#72616d',
-    backgroundColor: '#eae8f2'
+    backgroundColor: '#eae8f2',
+    borderWidth: 2,
   },
-  priceText: {
+  optionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 5,
   },
-  priceTextSmall: {
+  optionDescription: {
     fontSize: 14,
-    color: '#555',
+    color: '#666',
   },
-  startButton: {
-    backgroundColor: '#72616d',
-    paddingVertical: 15,
-    borderRadius: 10,
+  benefits: {
     marginTop: 20,
-  },
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  terms: {
-    fontSize: 12,
-    textAlign: 'center',
-    marginTop: 10,
-    color: '#555',
-  },
-  restoreText: {
-    textAlign: 'center',
-    marginTop: 10,
-    color: '#4f46e5',
-    textDecorationLine: 'underline',
+    width: '90%',
   },
   benefitText: {
     fontSize: 16,
     marginVertical: 5,
-  }
+  },
+  confirmButton: {
+    marginTop: 30,
+    backgroundColor: '#72616d',
+    paddingVertical: 15,
+    borderRadius: 10,
+    width: '80%',
+    alignItems: 'center',
+  },
+  confirmButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 });
 
 export default SubscriptionScreen;
