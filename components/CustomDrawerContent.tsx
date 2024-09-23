@@ -74,12 +74,23 @@ export default function CustomDrawerContent(props) {
                 >
                   {membershipStatus}
                 </Text>
+  
+                {/* Conditionally Render the Upgrade Button */}
+                {(membershipStatus === 'Basic Membership' || membershipStatus === 'Limited Access') && (
+                  <TouchableOpacity
+                    onPress={() => props.navigation.navigate('Subscription')} // Navigate to the upgrade screen
+                    style={styles.upgradeButton}
+                  >
+                    <Text style={styles.upgradeButtonText}>Upgrade Membership</Text>
+                  </TouchableOpacity>
+                )}
               </>
             )}
           </View>
         </View>
-
+  
         <View style={styles.drawerItemListContainer}>
+          {/* Home Button */}
           <TouchableOpacity
             onPress={() => props.navigation.navigate('BaseHome')}
             style={styles.drawerButton}
@@ -87,7 +98,8 @@ export default function CustomDrawerContent(props) {
             <Ionicons name="home" size={20} color="#f5e6a0" />
             <Text style={styles.drawerButtonText}>Home</Text>
           </TouchableOpacity>
-
+  
+          {/* Login Button (conditionally rendered if user is not logged in) */}
           {!user && (
             <TouchableOpacity
               onPress={() => props.navigation.navigate('Login')}
@@ -97,33 +109,38 @@ export default function CustomDrawerContent(props) {
               <Text style={styles.drawerButtonText}>Login</Text>
             </TouchableOpacity>
           )}
-
+  
+          {/* Logout Button (conditionally rendered if user is logged in) */}
           {user && (
             <TouchableOpacity onPress={handleLogout} style={styles.drawerButton}>
               <Ionicons name="log-out" size={20} color="#f5e6a0" />
               <Text style={styles.drawerButtonText}>Logout</Text>
             </TouchableOpacity>
           )}
-
-          <TouchableOpacity onPress={() => props.navigation.navigate('PrivacyPolicy')} style={styles.drawerButton}>
+  
+          {/* Privacy Policy Button */}
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('PrivacyPolicy')}
+            style={styles.drawerButton}
+          >
             <Ionicons name="book" size={20} color="#f5e6a0" />
             <Text style={styles.drawerButtonText}>Privacy Policy</Text>
           </TouchableOpacity>
         </View>
       </DrawerContentScrollView>
-
+  
       {/* Floating Share and Chat Buttons */}
       <TouchableOpacity style={[styles.floatingButton, { zIndex: 100 }]} onPress={handleShare}>
         <Ionicons name="share-social" size={28} color="white" />
       </TouchableOpacity>
-
+  
       <TouchableOpacity
         style={[styles.floatingChatButton, { right: isTablet ? 90 : 20, zIndex: 100 }]}
         onPress={handleWhatsAppShare}
       >
         <Ionicons name="logo-whatsapp" size={28} color="white" />
       </TouchableOpacity>
-
+  
       {/* Simplified Share Modal */}
       <Modal
         visible={shareModalVisible}
@@ -142,6 +159,7 @@ export default function CustomDrawerContent(props) {
       </Modal>
     </ImageBackground>
   );
+  
 }
 
 const styles = StyleSheet.create({
@@ -290,4 +308,23 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
+  upgradeButton: {
+    marginTop: 10,
+    backgroundColor: '#f5e6a0',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+  upgradeButtonText: {
+    color: '#72616d',
+    fontSize: 16,
+    fontWeight: 'bold',
+  }  
 });

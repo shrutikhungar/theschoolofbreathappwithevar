@@ -34,6 +34,8 @@ import WebsiteScreen from './screens/WebsiteScreen';
 import VideoAskScreen from './screens/VideoAskScreen';
 import BookACallScreen from './screens/BookACallScreen';
 import OurCoursesScreen from './screens/OurCoursesScreen';
+import Subscription from './screens/Subscription';
+
 
 // Import providers
 import { AudioProvider } from './context/AudioContext';
@@ -73,6 +75,7 @@ export type RootStackParamList = {
   VideoAskScreen: undefined;
   BookACallScreen: undefined;
   OurCoursesScreen: undefined;
+  Subscription: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -104,6 +107,7 @@ function AppNavigator() {
       <Stack.Screen name="VideoAskScreen" component={VideoAskScreen} />
       <Stack.Screen name="BookACallScreen" component={BookACallScreen} />
       <Stack.Screen name="OurCoursesScreen" component={OurCoursesScreen} />
+      <Stack.Screen name="Subscription" component={Subscription} />
     </Stack.Navigator>
   );
 }
