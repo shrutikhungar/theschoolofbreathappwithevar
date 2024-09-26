@@ -13,7 +13,8 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({ visible, title, messag
     <Modal
       transparent={true}
       visible={visible}
-      onRequestClose={onClose}
+      onRequestClose={() => { /* prevent closing on back press */ }}
+      animationType="fade"
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
@@ -21,7 +22,7 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({ visible, title, messag
           <Text style={styles.modalText}>{message}</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={onClose}
+            onPress={onClose}  // Only close when the user presses "OK"
           >
             <Text style={styles.textStyle}>OK</Text>
           </TouchableOpacity>
@@ -34,45 +35,44 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({ visible, title, messag
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   modalTitle: {
     marginBottom: 15,
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 18,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: 'center',
   },
   button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  }
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
-
