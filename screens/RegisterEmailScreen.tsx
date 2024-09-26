@@ -21,6 +21,7 @@ import { RootStackParamList } from '../App';
 import { useAuth } from '../context/AuthContext';
 import { CustomAlert } from '../components/login/CustomFeedback';
 import { Ionicons } from '@expo/vector-icons';
+import axios, { AxiosError } from 'axios';
 
 type RegisterScreenNavigationProp = StackNavigationProp<RootStackParamList, 'RegisterEmailScreen'>;
 
@@ -71,20 +72,20 @@ export default function RegisterEmailScreen() {
       showAlert('Input Error', 'Please fill out all fields');
       return;
     }
-
+  
     setIsLoading(true);
-
+  
     try {
-      await register(fullName, email, password);
-      showAlert('Success', 'Registration successful!');
-      navigation.navigate('BaseHome');
+      await register(fullName, email, password); // If this succeeds, a success alert will show inside the `register` method
+      navigation.navigate('BaseHome');  // Navigate only after successful registration
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Something went wrong, please try again.';
-      showAlert('Registration Error', errorMessage);
+      // This block will only be hit if an error is thrown from `register`
+      console.error('Registration failed:', error);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   const onLoginPress = () => {
     navigation.navigate('Login'); // Navigates to LoginScreen.tsx
