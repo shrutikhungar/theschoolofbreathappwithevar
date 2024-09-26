@@ -1,26 +1,18 @@
 // accessRules.ts
 
 export const fullAccessTags = [
-    'Enrolled_to_Membership',
-    'Enrolled_Holistic Membership',
-    'Enrolled_Swara Yoga Membership',
-    'UPIPayerMonthly',
-    'UPIPayerAnnual',
-    'Order Bump - Monthly Holistic Membership',
+    'Enrolled_Holistic Membership'
   ];
 
   export const fullAccessMemberTags = [
-    'Enrolled_to_Membership',
-  'Enrolled_Holistic Membership',
-  'Enrolled_Swara Yoga Membership',
-  'UPIPayerMonthly',
-  'UPIPayerAnnual',
-  'Order Bump - Monthly Holistic Membership',
-  'Enrolled_to_Sleep_Membership',
+  'Enrolled_Holistic Membership'
   ];
   export const limitedAccessTags = [
     'Purchased_9-Day Breathwork Course',
-    'Purchased_9-Day Meditation Course'
+    'Purchased_9-Day Bliss Course',
+    'Purchased_9-Day Meditation Course',
+    'Purchased_Swara_Yoga_Course',
+    'Enrolled_to_Sleep_Membership'
   ];
   
   export const limitedAccessRules: Record<string, string[]> = {
