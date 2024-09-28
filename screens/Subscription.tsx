@@ -26,7 +26,7 @@ const SubscriptionScreen = () => {
           onPress={() => handleSubscribe('CourseOnly')}
         >
           <Text style={styles.optionTitle}>Course Only</Text>
-          <Text style={styles.optionDescription}>One-time payment of $19.99 for full access to the course.</Text>
+          <Text style={styles.optionDescription}>One-time payment of $29.99 for full access to the course.</Text>
         </TouchableOpacity>
 
         {/* Monthly Membership */}
@@ -35,7 +35,7 @@ const SubscriptionScreen = () => {
           onPress={() => handleSubscribe('Monthly')}
         >
           <Text style={styles.optionTitle}>Monthly Membership</Text>
-          <Text style={styles.optionDescription}>$12.99/month. Cancel anytime.</Text>
+          <Text style={styles.optionDescription}>$14.99/month. Cancel anytime.</Text>
         </TouchableOpacity>
 
         {/* Yearly Membership */}
@@ -44,7 +44,7 @@ const SubscriptionScreen = () => {
           onPress={() => handleSubscribe('Yearly')}
         >
           <Text style={styles.optionTitle}>Yearly Membership</Text>
-          <Text style={styles.optionDescription}>$89.99/year. Save more with an annual plan!</Text>
+          <Text style={styles.optionDescription}>$99.99/year. Save more with an annual plan!</Text>
         </TouchableOpacity>
 
         {/* Benefits Section */}
