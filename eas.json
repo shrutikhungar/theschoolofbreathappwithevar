@@ -4,26 +4,36 @@
     "appVersionSource": "remote"
   },
   "build": {
-    "testflight": {
+    "production": {
       "ios": {
-        "distribution": "store",  // This should be "store" for TestFlight
+        "distribution": "store",
+        "autoIncrement": true
+      },
+      "android": {
+        "distribution": "store",
+        "buildType": "apk",  // Use "apk" for testing; "app-bundle" for production Play Store builds
         "autoIncrement": true
       }
     },
-    "production": {
-      "ios": {
-        "distribution": "store",  // Can also be used for TestFlight builds
-        "autoIncrement": true
+    "development": {
+      "android": {
+        "developmentClient": true,
+        "distribution": "internal",
+        "buildType": "apk"  // Use "apk" for internal testing
       }
     }
   },
   "submit": {
     "production": {
-        "ios": {
+      "ios": {
         "appleId": "abhishekdug@me.com",
         "ascAppId": "6670392350",
         "appleTeamId": "LG4QX5G8QG"
-      }      
+      },
+      "android": {
+        "serviceAccountKeyPath": "./google-play-service-key.json",  // Path to your Google Play service key
+        "track": "production"
+      }
     }
   }
 }
